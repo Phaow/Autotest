@@ -1,7 +1,7 @@
 FROM quay.io/centos/centos:centos7.9.2009
 LABEL description="This is a custom httpd container image"
 RUN yum install -y httpd
-ENV PORT 80
+ENV PORT 8080
 ENV LogLevel "info"
 RUN sed -ri -e "/^Listen 80/c\Listen ${PORT}" /etc/httpd/conf/httpd.conf && \
   chown apache:0 /etc/httpd/conf/httpd.conf && \
